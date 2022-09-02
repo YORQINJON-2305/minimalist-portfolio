@@ -6,28 +6,10 @@
   }
 }
 
-// @mixin desktop-first($max){
-//   @media only screen and (max-width: $max) {
-//     @content;
-//   }
-// }
-
-@mixin flexbox($justify:space-between, $align:center, $direction){
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-  flex-direction: $direction;
-}
-
 @mixin list-unstyle{
   margin: 0;
   padding-left: 0;
   list-style: none;
-}
-
-%button-unstyle{
-  background-color: transparent;
-  border: none;
 }
 
 @mixin link-unstyle($display:inline-block) {
@@ -49,31 +31,13 @@
   background-repeat: $repeat;
 }
 
-@mixin  bgRetinaImages{
-  @media
-  only screen and (-webkit-min-device-pixel-ratio: 2),
-  only screen and (   min--moz-device-pixel-ratio: 2),
-  only screen and (     -o-min-device-pixel-ratio: 2/1),
-  only screen and (        min-device-pixel-ratio: 2),
-  only screen and (                min-resolution: 192dpi),
-  only screen and (                min-resolution: 2dppx) {
-    @content;
-  }
-}
 
-@mixin typography-styles($style:normal, $size:16px, $line-height:1.15,$weight:400, $text-align:left, $color:#000) {
-  font-style: $style;
+@mixin typography-styles($size:16px, $line-height:1.15, $weight: 400, $letter-spacing, $color: var(--main-text-color)) {
   font-size: $size;
   line-height: $line-height;
   font-weight: $weight;
-  text-align: $text-align;
+  letter-spacing: $letter-spacing;
   color: $color;
-}
-
-%text-end{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 

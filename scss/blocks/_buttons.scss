@@ -1,0 +1,41 @@
+.hero__btn{
+    display: inline-flex;
+    align-items: center;
+    padding: 0px 30px 0px 0px;
+    text-align: center;
+    background-color: $main-btn-bg-color;
+    text-decoration: none;
+    @include typography-styles(12px, 14px, null, 2px, $text-color-white);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &::before{
+        margin-right: 30px;
+        background-color: #0000001a;
+        background-image: url("../../images/bottom-arrow.svg");
+        @include bgImages(center, no-repeat, 16px 12px);
+        @include psevdoelements(block, 48px, 48px, "");
+    }
+
+    &:hover{
+        background-color: var(--main-text-hover);
+    }
+
+    &:hover::before{
+        background-image: url("../../images/arrow-bottom-white.svg");
+    }
+}
+
+.form__btn{
+    padding: 17px 35px;
+    @include typography-styles(12px, 14px, 400, 2px, $text-color-white);
+    border: none;
+    background-color: $main-btn-bg-color;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+    &:hover{
+        background-color: #5FB4A2;
+    }
+}

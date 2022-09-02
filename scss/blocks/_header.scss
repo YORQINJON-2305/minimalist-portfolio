@@ -1,0 +1,130 @@
+.site-header__inner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 0px;
+}
+
+.logo{
+    color: var(--main-text-color);
+}
+
+.site-header__burger-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 13px;
+    background-color: transparent;
+}
+
+.site-header__burger {
+    width: 24px;
+    height: 1px;
+    background-color: var(--main-text-color);
+    transition: all 0.3s ease;
+
+    &::before,
+    &::after {
+        position: absolute;
+        width: 24px;
+        height: 1px;
+        background-color: var(--main-text-color);
+        transition: all 0.3s ease;
+        content: "";
+    }
+
+    &::before {
+        transform: translateY(-5px);
+    }
+
+    &::after {
+        transform: translateY(5px);
+    }
+}
+
+// BURGER ANIMATION
+.site-header.open .site-header__burger {
+    transform: translateX(15px);
+    background-color: transparent;
+}
+
+.site-header.open .site-header__burger::before {
+    transform: rotate(45deg) translate(-11px, 11px);
+}
+
+.site-header.open .site-header__burger::after {
+    transform: rotate(-45deg) translate(-11px, -11px);
+    box-shadow: none;
+}
+
+.sitenav {
+    position: absolute;
+    top: 96px;
+    right: 0;
+    z-index: 10;
+    display: none;
+    width: 100%;
+    max-width: 223px;
+    padding: 40px 20px;
+    text-align: center;
+    background-color:#33323D;
+}
+
+.site-header.open .sitenav{
+    display: block;
+}
+
+.sitenav__list {
+    @include list-unstyle;
+}
+
+.sitenav__item:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+.sitenav__link {
+    @include link-unstyle;
+    @include typography-styles(13px, 14px, null, 2px, $text-color-white);
+    transition: color 0.3s ease;
+
+    &:hover{
+        color: var(--main-text-hover);
+    }
+}
+
+@include mobile-first(550px){
+    .site-header__inner{
+        padding-top: 64px;
+        padding-bottom: 47px;
+    }
+
+    .site-header__burger-wrap{
+        display: none;
+    }
+
+    .sitenav{
+        position: static;
+        display: block;
+        padding: 0;
+        width: auto;
+        max-width: 100%;
+        background-color: transparent;
+    }
+
+    .sitenav__list{
+        display: flex;
+        align-items: center;
+    }
+
+    .sitenav__item:not(:last-child){
+        margin-right: 43px;
+        margin-bottom: 0;
+    }
+
+    .sitenav__link{
+        @include typography-styles(12px, 14px, null, 2px, var(--main-text-color))
+    }
+}
